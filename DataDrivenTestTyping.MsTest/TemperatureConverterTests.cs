@@ -17,6 +17,11 @@ public class TemperatureConverterTests
     [DataRow(Kelvin, Celsius, 300, 26.85)]
     [DataRow(Kelvin, Fahrenheit, 300, 80.33)]
     [DataRow(Kelvin, Kelvin, 300, 300)]
+    public void ConvertsCorrectly(TemperatureUnit from, TemperatureUnit to, object value, object expected)
+    {
+        ConvertsCorrectly(from, to, Convert.ToDouble(value), Convert.ToDouble(expected));
+    }
+
     public void ConvertsCorrectly(TemperatureUnit from, TemperatureUnit to, double value, double expected)
     {
         var result = TemperatureConverter.Convert(value, from, to);
